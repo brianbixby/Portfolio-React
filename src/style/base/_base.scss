@@ -1,6 +1,9 @@
 *:focus, *:active {
     outline: none !important;
 }
+html {
+    scroll-behavior: smooth;
+}
 body {
   width: 100%;
   background: #fff;

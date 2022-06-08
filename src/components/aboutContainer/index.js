@@ -1,16 +1,12 @@
-import React from 'react';
-import Footer from '../footer';
+import React, { useEffect } from 'react';
+// import Footer from '../footer';
+import Footer2 from '../footer2';
 
-class AboutContainer extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = { };
-  }
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
+function AboutContainer(){
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
-  render() {
     return(
       <div className='pageContent'>
         <div className='aboutHeader'>
@@ -53,11 +49,11 @@ class AboutContainer extends React.Component {
             </div>
           </div>
         </div>
-        <div className='spacer'></div>
-        <Footer />
+        {/* <div className='spacer'></div> */}
+        {/* <Footer /> */}
+        <Footer2 />
       </div>
     );
-  }
 }
 
 export default AboutContainer;

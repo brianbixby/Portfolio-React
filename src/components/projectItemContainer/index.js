@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from "react-router-dom";
 
@@ -7,21 +7,17 @@ import { projectFetchRequest } from '../../actions/project-actions.js';
 import { logError, renderIf, classToggler } from './../../lib/util.js';
 
 function ProjectItemContainer({ currentProject, projectFetch, params}) {
-    // const myRef = React.createRef();
+    const myRef = React.createRef();
+    const executeScroll = () => myRef.current.scrollIntoView();
     const { projectName } = useParams();
-    const [trans, setTrans] = useState(`translate3d(0px, 0px, 0px)`);
+
     useEffect(() => {
         projectFetch(projectName)
-            .then(() => {
-                // window.addEventListener('scroll', handleScroll);
-                window.scrollTo(0, 0);
-            })
+            .then(() => window.scrollTo(0, 0))
             .catch(err => logError(err))
     }, [projectFetch, projectName]);
 
-    // const executeScroll = () => myRef.current.scrollIntoView()
-
-    let myProject = currentProject && currentProject.projects ? currentProject.projects : null;
+    const myProject = currentProject && currentProject.projects ? currentProject.projects : null;
     const obj = {
       bb: require("./../assetts/bb2.png"),
       c: require("./../assetts/c.png"),
@@ -30,25 +26,20 @@ function ProjectItemContainer({ currentProject, projectFetch, params}) {
       tf: require("./../assetts/tf.png"),
       weather: require("./../assetts/weather.png")
     };
-    let id = params && params.projectName ? params.projectName : "none";
+    const id = params && params.projectName ? params.projectName : "none";
     return(
       <div className='projectItemContent' id={id}>
         {renderIf(currentProject && currentProject.image,
         <div className='content'>
           <div className='coverImageWrapper'>
-            <div className='coverImage' style={{background: `url(${obj[currentProject.image]})`, transform: trans}}></div>
-            <div className='scrollWrapper' 
-            // onClick={() => scrollToComponent(ProjectDescriptionWrapper, { offset: 0, align: 'top' })}
-            >
+            <div className='coverImage' style={{background: `url(${obj[currentProject.image]})`, transform: "translate3d(0px, 0px, 0px)"}}></div>
+            <div className='scrollWrapper' onClick={executeScroll} >
               <div className='iconDiv'>
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="53px" height="20px" viewBox="0 0 53 20" enableBackground="new 0 0 53 20" xml="preserve"><g><polygon points="26.5,17.688 9.114,3.779 10.303,2.312 26.5,15.269 42.697,2.313 43.886,3.779"> </polygon></g></svg>
               </div>
             </div>
           </div>
-          <div className='projectDescriptionWrapper' 
-        //   ref={myRef}
-          > 
-          {/* ref={(section) => { ProjectDescriptionWrapper = section; }}> */}
+          <div className='projectDescriptionWrapper' ref={myRef}> 
             <div className='container'>
               <div className='projectTitleWrapper'>
                 <p>{currentProject.name}</p>
@@ -67,9 +58,9 @@ function ProjectItemContainer({ currentProject, projectFetch, params}) {
                   )}
                   <p>
                     <a className="github" href={currentProject.github} rel="noopener noreferrer" target="_blank">Github</a>
-                    {renderIf(currentProject.site !== 'na', 
+                    {/* {renderIf(currentProject.site !== 'na', 
                       <a className="site" href={currentProject.site} rel="noopener noreferrer" target="_blank">Site</a>
-                    )}
+                    )} */}
                   </p>
                 </div>
               )}

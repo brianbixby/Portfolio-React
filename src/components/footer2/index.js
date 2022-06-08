@@ -1,14 +1,6 @@
 import React from 'react';
 
-class Footer2 extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-
-    };
-  }
-
-  render() {
+function Footer2() {
     return (
       <div className='footerWrapper'>
         <div className='footerSpacer'></div>
@@ -24,8 +16,6 @@ class Footer2 extends React.Component {
         </div>
       </div>
     );
-  }
 }
-
 
 export default Footer2;

@@ -1,14 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class Tile extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = { };
-  }
-
-  render() {
-    const { project } = this.props;
+function Tile({project}) {
     const obj = {
       bb: require("./../assetts/bb2.png"),
       c: require("./../assetts/c.png"),
@@ -30,7 +23,6 @@ class Tile extends React.Component {
         </div>
       </Link>
     );
-  }
 }
 
 export default Tile;

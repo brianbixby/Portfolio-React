@@ -6,7 +6,6 @@ import { messageCreateRequest } from '../../actions/message-actions.js';
 import Tooltip from '../tooltip';
 import { classToggler } from './../../lib/util.js';
 
-
 class Footer extends React.Component {
   constructor(props){
     super(props);
@@ -146,8 +145,6 @@ class Footer extends React.Component {
   }
 }
 
-let mapDispatchToProps = dispatch => ({
-  messageCreate: message => dispatch(messageCreateRequest(message)),
-});
+const mapDispatchToProps = dispatch => ({ messageCreate: message => dispatch(messageCreateRequest(message)) });
 
 export default connect(null, mapDispatchToProps)(Footer);
