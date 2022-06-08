@@ -1,4 +1,4 @@
-export default (state={}, action) => {
+const currentProject = (state={}, action) => {
   let { type, payload } = action;
 
   switch(type) {
@@ -8,3 +8,5 @@ export default (state={}, action) => {
       return state;
   }
 };
+
+export default currentProject;

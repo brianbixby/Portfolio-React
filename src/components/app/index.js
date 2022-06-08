@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 const Navbar = lazy(() => import('../navbar'));
 const LandingContainer = lazy(() => import('../landingContainer'));
@@ -7,7 +7,7 @@ const AboutContainer = lazy(() => import('../aboutContainer'));
 const ProjectItemContainer = lazy(() => import('../projectItemContainer'));
 
 const App = () => (
-  <Router>
+//   <Router>
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path='*' element={<Navbar />} />
@@ -16,5 +16,7 @@ const App = () => (
         <Route path='/project/:projectName' element={<ProjectItemContainer />} />
       </Routes>
     </Suspense>
-  </Router>
+//   </Router>
 );
+
+export default App;

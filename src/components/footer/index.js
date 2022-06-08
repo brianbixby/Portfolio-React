@@ -61,7 +61,7 @@ class Footer extends React.Component {
   handleBlur = e => {
     let { name } = e.target;
     this.setState(state => ({
-      focused: state.focused == name ? null : state.focused,
+      focused: state.focused === name ? null : state.focused,
     }))
   };
   handleChange = e => {
@@ -95,7 +95,7 @@ class Footer extends React.Component {
   };
 
   render() {
-    let { focused, submitted, email, emailError, message, messageError, name, nameError } = this.state;
+    let { focused, submitted, emailError, messageError, nameError } = this.state;
     return (
       <div className='footerWrapper'>
         <div className='container'>

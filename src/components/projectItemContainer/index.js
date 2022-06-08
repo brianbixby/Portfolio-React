@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import scrollToComponent from 'react-scroll-to-component';
 
 import Footer2 from '../footer2';
 import { projectFetchRequest } from '../../actions/project-actions.js';
@@ -15,22 +14,22 @@ class projectItemContainer extends React.Component {
   componentWillMount() {
     this.props.projectFetch(this.props.match.params.projectName)
       .then(() => {
-        window.addEventListener('scroll', this.handleScroll);
+        // window.addEventListener('scroll', this.handleScroll);
         window.scrollTo(0, 0);
       })
       .catch(err => logError(err));
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
+//   componentWillUnmount() {
+    // window.removeEventListener('scroll', this.handleScroll);
+//   }
 
-  handleScroll = e => {
-    let scrollTop = window.scrollY/3;
-    this.setState({
-      trans: `translate3d(0px, ${scrollTop}px, 0px)`
-    });
-  };
+//   handleScroll = e => {
+//     let scrollTop = window.scrollY/3;
+//     this.setState({
+//       trans: `translate3d(0px, ${scrollTop}px, 0px)`
+//     });
+//   };
 
   render() {
     let { currentProject } = this.props;
@@ -50,7 +49,9 @@ class projectItemContainer extends React.Component {
         <div className='content'>
           <div className='coverImageWrapper'>
             <div className='coverImage' style={{background: `url(${obj[currentProject.image]})`, transform: trans}}></div>
-            <div className='scrollWrapper' onClick={() => scrollToComponent(this.ProjectDescriptionWrapper, { offset: 0, align: 'top' })}>
+            <div className='scrollWrapper' 
+            // onClick={() => scrollToComponent(this.ProjectDescriptionWrapper, { offset: 0, align: 'top' })}
+            >
               <div className='iconDiv'>
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="53px" height="20px" viewBox="0 0 53 20" enableBackground="new 0 0 53 20" xml="preserve"><g><polygon points="26.5,17.688 9.114,3.779 10.303,2.312 26.5,15.269 42.697,2.313 43.886,3.779"> </polygon></g></svg>
               </div>

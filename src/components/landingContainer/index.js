@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { projectsFetchRequest, projectFetchRequest } from '../../actions/project-actions.js';
-import { logError } from './../../lib/util.js';
+import { logError, renderIf } from './../../lib/util.js';
 import Tile from '../tile';
 import './../../style/main.scss';
 
@@ -29,14 +29,15 @@ class LandingContainer extends React.Component {
             </div>
           </div>
         </div>
-
-        <div className='tileContainer'>
-          {projects.map(project => {
-            return <div className='tileOuter' key={project._id}>
-              <Tile project={project} />
+        {renderIf(projects && projects.length,
+            <div className='tileContainer'>
+                {projects.map(project => {
+                    return <div className='tileOuter' key={project._id}>
+                    <Tile project={project} />
+                    </div>
+                })}
             </div>
-          })}
-        </div>
+        )}
       </div>
     );
   }

@@ -20,7 +20,7 @@ class Tile extends React.Component {
     return(
       <Link to={`/project/${project.url}`}>
         <div className='tileWrapper'>
-          <img src={obj[project.image]} />
+          <img src={obj[project.image]} alt="project screen shot" />
           <div className='tileInner'>
             <div className='text'>
               <p className='projectName'>{project.name} </p>
