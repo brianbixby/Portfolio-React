@@ -1,40 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { useParams } from "react-router-dom";
 
 import Footer2 from '../footer2';
 import { projectFetchRequest } from '../../actions/project-actions.js';
 import { logError, renderIf, classToggler } from './../../lib/util.js';
 
-class projectItemContainer extends React.Component {
-  constructor(props){
-    super(props);
-    this.myRef = React.createRef();
-    this.state = { trans: `translate3d(0px, 0px, 0px)`, };
-  }
-  componentWillMount() {
-    this.props.projectFetch(this.props.match.params.projectName)
-      .then(() => {
-        // window.addEventListener('scroll', this.handleScroll);
-        window.scrollTo(0, 0);
-      })
-      .catch(err => logError(err));
-  }
+function ProjectItemContainer({ currentProject, projectFetch, params}) {
+    // const myRef = React.createRef();
+    const { projectName } = useParams();
+    const [trans, setTrans] = useState(`translate3d(0px, 0px, 0px)`);
+    useEffect(() => {
+        projectFetch(projectName)
+            .then(() => {
+                // window.addEventListener('scroll', handleScroll);
+                window.scrollTo(0, 0);
+            })
+            .catch(err => logError(err))
+    }, [projectFetch, projectName]);
 
-//   componentWillUnmount() {
-    // window.removeEventListener('scroll', this.handleScroll);
-//   }
+    // const executeScroll = () => myRef.current.scrollIntoView()
 
-//   handleScroll = e => {
-//     let scrollTop = window.scrollY/3;
-//     this.setState({
-//       trans: `translate3d(0px, ${scrollTop}px, 0px)`
-//     });
-//   };
-
-  render() {
-    let { currentProject } = this.props;
-    let myProject = this.props.currentProject && this.props.currentProject.projects ? this.props.currentProject.projects : null;
-    let { trans } = this.state;
+    let myProject = currentProject && currentProject.projects ? currentProject.projects : null;
     const obj = {
       bb: require("./../assetts/bb2.png"),
       c: require("./../assetts/c.png"),
@@ -43,22 +30,25 @@ class projectItemContainer extends React.Component {
       tf: require("./../assetts/tf.png"),
       weather: require("./../assetts/weather.png")
     };
+    let id = params && params.projectName ? params.projectName : "none";
     return(
-      <div className='projectItemContent' id={this.props.match.params.projectName}>
+      <div className='projectItemContent' id={id}>
         {renderIf(currentProject && currentProject.image,
         <div className='content'>
           <div className='coverImageWrapper'>
             <div className='coverImage' style={{background: `url(${obj[currentProject.image]})`, transform: trans}}></div>
             <div className='scrollWrapper' 
-            // onClick={() => scrollToComponent(this.ProjectDescriptionWrapper, { offset: 0, align: 'top' })}
+            // onClick={() => scrollToComponent(ProjectDescriptionWrapper, { offset: 0, align: 'top' })}
             >
               <div className='iconDiv'>
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="53px" height="20px" viewBox="0 0 53 20" enableBackground="new 0 0 53 20" xml="preserve"><g><polygon points="26.5,17.688 9.114,3.779 10.303,2.312 26.5,15.269 42.697,2.313 43.886,3.779"> </polygon></g></svg>
               </div>
             </div>
           </div>
-          <div className='projectDescriptionWrapper' ref={this.myRef}> 
-          {/* ref={(section) => { this.ProjectDescriptionWrapper = section; }}> */}
+          <div className='projectDescriptionWrapper' 
+        //   ref={myRef}
+          > 
+          {/* ref={(section) => { ProjectDescriptionWrapper = section; }}> */}
             <div className='container'>
               <div className='projectTitleWrapper'>
                 <p>{currentProject.name}</p>
@@ -101,17 +91,9 @@ class projectItemContainer extends React.Component {
         <Footer2/>
       </div>
     );
-  }
-  executeScroll = () => this.myRef.current.scrollIntoView()
 }
 
-let mapStateToProps = state => ({
-  currentProject: state.currentProject,
-  browser: state.browser,
-});
+const mapStateToProps = state => ({ currentProject: state.currentProject });
+const mapDispatchToProps = dispatch => ({ projectFetch: url => dispatch(projectFetchRequest(url)) });
 
-let mapDispatchToProps = dispatch => ({
-  projectFetch: url => dispatch(projectFetchRequest(url)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(projectItemContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectItemContainer);

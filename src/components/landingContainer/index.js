@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect  } from 'react';
 import { connect } from 'react-redux';
 
 import { projectsFetchRequest, projectFetchRequest } from '../../actions/project-actions.js';
@@ -6,19 +6,13 @@ import { logError, renderIf } from './../../lib/util.js';
 import Tile from '../tile';
 import './../../style/main.scss';
 
-class LandingContainer extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = { };
-  }
-  componentWillMount() {
-    this.props.projectsFetch()
-      .catch(err => logError(err));
-    window.scrollTo(0, 0);
-  }
+function LandingContainer({projects, projectsFetch }) {
+    useEffect(() => {
+        projectsFetch()
+            .then(() => window.scrollTo(0, 0))
+            .catch(err => logError(err));
+    }, [projectsFetch]);
 
-  render() {
-    let { projects } = this.props;
     return(
       <div className='pageContent homePageContent'>
         <div className='headline'>
@@ -40,16 +34,12 @@ class LandingContainer extends React.Component {
         )}
       </div>
     );
-  }
 }
 
-let mapStateToProps = state => ({
-  projects: state.projects,
-});
-
-let mapDispatchToProps = dispatch => ({
-  projectsFetch: () => dispatch(projectsFetchRequest()),
-  projectFetch: url => dispatch(projectFetchRequest(url)),
+const mapStateToProps = state => ({ projects: state.projects });
+const mapDispatchToProps = dispatch => ({
+    projectsFetch: () => dispatch(projectsFetchRequest()),
+    projectFetch: url => dispatch(projectFetchRequest(url)) 
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LandingContainer);

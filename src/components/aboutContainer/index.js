@@ -6,7 +6,7 @@ class AboutContainer extends React.Component {
     super(props);
     this.state = { };
   }
-  componentWillMount() {
+  componentDidMount() {
     window.scrollTo(0, 0);
   }
 
