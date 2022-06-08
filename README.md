@@ -4,7 +4,7 @@
 
 ## Description
 
-This single-page application is my portfolio. Additionally, it features a number of data persistence techniques that serve as redundancy in case one of the options is not supported by the browser. The application also functions offline. I utilized [Create React App](https://create-react-app.dev/), and [Redux](https://redux.js.org/) for the front end, along with associated packages for routing and styling.
+This single-page application is my portfolio. Additionally, I utilized [Create React App](https://create-react-app.dev/), and [Redux](https://redux.js.org/) for the front end, along with associated packages for routing and styling.
 
 ## Table of Contents
 
