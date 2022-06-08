@@ -1,0 +1,243 @@
+.projectItemContent {
+  width: 100%;
+  z-index: 1;
+  height: 100%;
+
+  .content {
+    height: 100%;
+  }
+}
+.coverImageWrapper {
+
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+
+  .coverImage {
+    background-position: top center !important;
+    background-size: cover !important;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    line-height: 0;
+    overflow: hidden;
+    height: 100%;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+  }
+  .scrollWrapper {
+    cursor: pointer;
+    height: 20px;
+    position: absolute;
+    bottom: 32px;
+    width: 100%;
+    z-index: 5;
+
+    .iconDiv {
+      transition: all .2s linear;
+      -moz-transition: all .2s linear;
+      -webkit-transition: all .2s linear;
+      -o-transition: all .2s linear;
+      width: 100%;
+      position: absolute;
+      text-align: center;
+
+      svg {
+        fill: #777;
+        transition: all .5s;
+        transform-origin: 50% 50%;
+      }
+    }
+  }
+  .scrollWrapper:hover .iconDiv svg {
+    transform: scale(1.2);
+  }
+}
+.projectDescriptionWrapper {
+  padding: 90px 0;
+}
+.projectTitleWrapper {
+  margin-bottom: 60px;
+  margin-right: 20px;
+  float: left;
+}
+.footerTitleWrapper {
+  margin-right: 20px;
+  float: left;
+  margin-bottom: 30px;
+}
+.projectTitleWrapper p, .footerTitleWrapper p {
+  font-weight: 700;
+  color: #333;
+  font-size: 28px;
+  line-height: 40px;
+}
+.projectDescWrapper{
+  p {
+    font-size: 18px;
+    line-height: 26px;
+    word-wrap: break-word;
+    font-weight: 300;
+    color: #333;
+    margin-bottom: 15px;
+
+    .hidden {
+      display: none;
+    }
+  }
+} 
+.projectTitleWrapper, .projectDescWrapper, .footerTitleWrapper, .footerFormWrapper {
+  display: inline-block;
+}
+.projectDescWrapper p a {
+  font-weight: 700;
+  color: #f62626;
+  transition: all .2s linear;
+}
+.projectDescWrapper p a:hover {
+  color: #333;
+}
+.projectDescWrapper p .github {
+  margin-right: 20px;
+}
+
+.projectItemWrapper {
+  margin-bottom: 35px;
+
+  .name {
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .github {
+    font-weight: 700;
+    color: #f62626;
+  }
+  .github:hover {
+    color: #333;
+  }
+}
+.projectItemWrapper:last-child {
+  margin-bottom: 0;
+}
+#chow .coverImageWrapper {
+  margin-top: 70px;
+  max-height: calc((100vh - 70px));
+
+  .coverImage {
+    background-image: url("./../components/assetts/chow.webp") !important;
+  }
+}
+.keyTech {
+  font-size: 20px;
+  line-height: 26px;
+  word-wrap: break-word;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  display: block;
+}
+.projectDescWrapper .fullDesc .fw300 {
+  font-weight: 300;
+}
+@media (max-width: 767px) {
+  .projectTitleWrapper, .projectDescWrapper, .footerTitleWrapper, .footerFormWrapper {
+    display: block;
+    margin-right: 0;
+    float: none;
+  }
+  .projectTitleWrapper p, .footerTitleWrapper p {
+    font-size: 26px;
+    line-height: 38px;
+  }
+  .projectDescWrapper p {
+    font-size: 19px;
+    line-height: 28px;
+  }
+  .projectDescriptionWrapper {
+    padding: 45px 0;
+  }
+  .projectTitleWrapper {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 499px) {
+  .coverImageWrapper {
+    margin-top: 70px;
+
+    .scrollWrapper {
+      display: none;
+    }
+  }
+}
+@media (max-width: 979px) and (min-width: 768px) {
+  .projectTitleWrapper, .footerTitleWrapper {
+    width: 228px;
+  }
+  .projectDescWrapper, .footerFormWrapper {
+    width: 476px;
+  }
+}
+@media (max-width: 1199px) and (min-width: 980px) {
+  .projectTitleWrapper, .footerTitleWrapper {
+    width: 300px;
+  }
+  .projectDescWrapper, .footerFormWrapper {
+    width: 620px;
+  }
+}
+@media (min-width: 1200px) {
+  .projectTitleWrapper, .footerTitleWrapper {
+    width: 370px;
+    margin-right: 30px;
+  }
+  .projectTitleWrapper p, .footerTitleWrapper p {
+      font-size: 30px;
+      line-height: 42px;
+    }
+  .projectDescWrapper, .footerFormWrapper {
+    width: 770px;
+  }
+  .projectDescWrapper p {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+@media (max-aspect-ratio: 8/6) {
+  .coverImageWrapper {
+    height: calc((100vw / 1.5));
+    max-height: 100vh;
+
+    .coverImage {
+      background-position: center center !important;
+      background-size: contain !important;
+    }
+  }
+  .projectDescriptionWrapper {
+    padding: 45px 0;
+  }
+  .projectTitleWrapper {
+    margin-bottom: 30px;
+  }
+}
+#projects-in-c, #tensorflow, #bracket-busters {
+  .coverImageWrapper .coverImage{
+    background-size: contain !important;
+  }
+}
+#projects-in-c .coverImageWrapper .coverImage, #tensorflow .coverImageWrapper .coverImage{
+  height: 90%;
+}
+#weather-app .coverImageWrapper .coverImage {
+  background-position: center center !important;
+}
+#smart-incubator .coverImageWrapper .coverImage {
+  background-position: bottom center !important;
+}
+@media (max-width: 600px) and (min-width: 500px) {
+  #projects-in-c .coverImageWrapper .coverImage, #tensorflow .coverImageWrapper .coverImage{
+    height: 80%;
+  }
+}

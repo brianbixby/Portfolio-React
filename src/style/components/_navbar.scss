@@ -1,0 +1,119 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+nav {
+  height: 70px;
+  transition:1s ease;
+  -moz-transition:1s ease;
+  -webkit-transition:1s ease;
+
+  .container {
+    height: 70px;
+  }
+}
+.logo {
+  cursor: pointer;
+  position: absolute;
+  height: 70px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  top: 0;
+  padding: 23px 0;
+  z-index: 5;
+
+  a{
+    font-size: 24px;
+    line-height: 1;
+    color: #000;
+    text-decoration: none !important;
+  }
+}
+.logo:hover a {
+  color: #f62626;
+}
+.hamburger {
+  cursor: pointer;
+  position: absolute;
+  width: 24px;
+  height: 70px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  top: 0;
+  z-index: 5;
+}
+.buns {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: #000;
+  transform: rotate(0);
+  transition: all 0.25s;
+}
+.hamburger:hover .buns {
+  background: #f62626;
+}
+.top {
+  top: 34px;
+  transform: translateY(-3px);
+}
+.bottom {
+  bottom: 34px;
+  transform: translateY(3px);
+}
+.open {
+  transform: rotate(90deg);
+}
+.open .top {
+  transform: rotate(45deg) translateY(0px);
+}
+.open .bottom {
+  transform: rotate(-45deg) translateY(0px);
+} 
+.hamburgerToggle {
+  position: fixed;
+  top: 0;
+  padding-top: 48px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  height: auto;
+  box-sizing: border-box;
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transform: translateY(-100vh);
+  transition: transform .4s ease-in;
+  z-index: 1;
+  background: #fff;
+}
+.slideIn {
+  transform: translateY(0vh);
+  transition: transform .4s ease-in;
+}
+.dropDownLink {
+  font-size: 34px;
+  color: #000;
+  font-family: 'Roboto', sans-serif;
+  font-display: auto;
+  text-decoration: none;
+  padding: 18px 0;
+  display: block;
+  text-align: right;
+  transition: all .2s linear;
+}
+.dropDownLink:hover {
+  color: #f62626;
+}
+.dropDownListItem {
+  height: 70px;
+}
+.dropDownList {
+  padding-top: 20px;
+}

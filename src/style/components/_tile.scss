@@ -1,0 +1,53 @@
+.tileOuter {
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-bottom: -3px;
+
+  .tileWrapper {
+    img {
+      width: 100%;
+      height: auto;
+    }
+    .tileInner {
+      .text {
+        padding: 32px;
+        margin: 0 !important;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        bottom: 3px;
+        background-color: rgba(246, 38, 38, 0.90);
+        transition: all .3s ease;
+        -moz-transition: all .3s ease;
+        -webkit-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        opacity: 0;
+
+        .projectName {
+          color: #fff;
+          line-height: 1;
+          font-size: 24px;
+          font-weight: 400;
+        }
+        .projectDesc {
+          color: #000;
+          line-height: 1;
+          font-size: 24px;
+          margin-top: 8px;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}
+.tileOuter .tileWrapper:hover .tileInner .text {
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .tileOuter {
+    width: 33.3333% !important;
+    float: left;
+  }
+}
