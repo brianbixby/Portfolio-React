@@ -50,7 +50,7 @@ If you have any questions please don't hesitate to reach out:
 
 ## Technology
 
-- [Github](https://github.com/brianbixby/Progressive-Web-App-Text-Editor)
+- [Github](https://github.com/brianbixby/https://github.com/brianbixby/Portfolio-React)
 - [Create React App](https://create-react-app.dev/)
 - [react](https://reactjs.org/)
 - [react-dom](https://reactjs.org/docs/react-dom.html)
