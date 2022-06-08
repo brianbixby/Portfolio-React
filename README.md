@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# Portfolio-React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+This single-page application is my portfolio. Additionally, it features a number of data persistence techniques that serve as redundancy in case one of the options is not supported by the browser. The application also functions offline. I utilized [Create React App](https://create-react-app.dev/), and [Redux](https://redux.js.org/) for the front end, along with associated packages for routing and styling.
 
-### `npm start`
+## Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Installation](#installation)
+- [Usage](#usage)
+- [Product](#product)
+- [Questions](#questions)
+- [Technology](#technology)
+- [License](#license)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+Prerequisites: Node & NPM
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/brianbixby/Portfolio-React.git
+cd Portfolio-React
+npm run install
+create a .env file based on the .env-sample
+*** Note: you will need a backend for this app to work: mine is located at: https://github.com/brianbixby/portfolio-backend ***
+```
 
-### `npm run build`
+## Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- The application will be invoked by using the following commands:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm run start
+*** open http://localhost:3000/ ***
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Product
 
-### `npm run eject`
+![A screen shot of my portfolio site.](./src/components/assetts/siteImage.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+[Live Site](https://intense-spire-62825.herokuapp.com/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Questions
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+If you have any questions please don't hesitate to reach out:
+[Github](https://github.com/brianbixby)
+[Email](mailto:brianbixby0@gmail.com)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Technology
 
-## Learn More
+- [Github](https://github.com/brianbixby/Progressive-Web-App-Text-Editor)
+- [Create React App](https://create-react-app.dev/)
+- [react](https://reactjs.org/)
+- [react-dom](https://reactjs.org/docs/react-dom.html)
+- [react-redux](https://react-redux.js.org/)
+- [react-router](https://reactrouter.com/)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [redux](https://redux.js.org/)
+- [redux-devtools-extension](https://www.npmjs.com/package/redux-devtools-extension)
+- [redux-logger](https://www.npmjs.com/package/redux-logger)
+- [sass](https://www.npmjs.com/package/sass)
+- [superagent](https://www.npmjs.com/package/superagent)
+- [validator](https://www.npmjs.com/package/validator)
+- [dotenv](https://www.npmjs.com/package/dotenv)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Copyright 2022 Brian Bixby
 
-### Code Splitting
+Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
