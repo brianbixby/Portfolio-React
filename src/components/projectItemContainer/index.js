@@ -58,9 +58,9 @@ function ProjectItemContainer({ currentProject, projectFetch, params}) {
                   )}
                   <p>
                     <a className="github" href={currentProject.github} rel="noopener noreferrer" target="_blank">Github</a>
-                    {/* {renderIf(currentProject.site !== 'na', 
+                    {renderIf(currentProject.site !== 'na', 
                       <a className="site" href={currentProject.site} rel="noopener noreferrer" target="_blank">Site</a>
-                    )} */}
+                    )}
                   </p>
                 </div>
               )}
