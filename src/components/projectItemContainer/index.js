@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from "react-router-dom";
 
-import Footer2 from '../footer2';
 import { projectFetchRequest } from '../../actions/project-actions.js';
 import { logError, renderIf, classToggler } from './../../lib/util.js';
+const Footer2 = lazy(() => import('../footer2'));
 
 function ProjectItemContainer({ currentProject, projectFetch, params}) {
     const myRef = React.createRef();
@@ -19,12 +19,12 @@ function ProjectItemContainer({ currentProject, projectFetch, params}) {
 
     const myProject = currentProject && currentProject.projects ? currentProject.projects : null;
     const obj = {
-      bb: require("./../assetts/bb2.png"),
-      c: require("./../assetts/c.png"),
-      chow: require("./../assetts/chow2.png"),
-      si: require("./../assetts/si.png"),
-      tf: require("./../assetts/tf.png"),
-      weather: require("./../assetts/weather.png")
+      bb: require("./../assetts/bb2.webp"),
+      c: require("./../assetts/c.webp"),
+      chow: require("./../assetts/chow2.webp"),
+      si: require("./../assetts/si.webp"),
+      tf: require("./../assetts/tf.webp"),
+      weather: require("./../assetts/weather.webp")
     };
     const id = params && params.projectName ? params.projectName : "none";
     return(

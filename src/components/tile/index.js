@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 function Tile({project}) {
     const obj = {
-      bb: require("./../assetts/bb2.png"),
-      c: require("./../assetts/c.png"),
-      chow: require("./../assetts/chow2.png"),
-      si: require("./../assetts/si.png"),
-      tf: require("./../assetts/tf.png"),
-      weather: require("./../assetts/weather.png")
+      bb: require("./../assetts/bb2.webp"),
+      c: require("./../assetts/c.webp"),
+      chow: require("./../assetts/chow2.webp"),
+      si: require("./../assetts/si.webp"),
+      tf: require("./../assetts/tf.webp"),
+      weather: require("./../assetts/weather.webp")
     };
     return(
       <Link to={`/project/${project.url}`}>

@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-// import Footer from '../footer';
-import Footer2 from '../footer2';
+import React, { useEffect, lazy } from 'react';
+// const Footer = lazy(() => import('../footer'));
+const Footer2 = lazy(() => import('../footer2'));
 
 function AboutContainer(){
     useEffect(() => {

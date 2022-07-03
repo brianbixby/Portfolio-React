@@ -38,7 +38,7 @@ npm run start
 
 ## Product
 
-![A screen shot of my portfolio site.](./src/components/assetts/siteImage.png)
+![A screen shot of my portfolio site.](./src/components/assetts/siteImage.webp)
 
 [Live Site](https://intense-spire-62825.herokuapp.com/)
 

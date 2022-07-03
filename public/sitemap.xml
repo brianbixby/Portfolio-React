@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>https://www.builtbybixby.com</loc>
+    <lastmod>2022-07-03T05:01:20+03:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.builtbybixby.com/about</loc>
+    <lastmod>2022-07-03T05:01:20+03:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.builtbybixby.com/project/projects-in-c</loc>
+    <lastmod>2022-07-03T05:02:20+03:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.builtbybixby.com/project/tensorflow</loc>
+    <lastmod>2022-07-03T05:02:20+03:00</lastmod>
+  </url>
+    <url>
+    <loc>https://www.builtbybixby.com/project/weather-app</loc>
+    <lastmod>2022-07-03T05:02:20+03:00</lastmod>
+  </url>
+    <url>
+    <loc>https://www.builtbybixby.com/project/chow</loc>
+    <lastmod>2022-07-03T05:02:20+03:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.builtbybixby.com/project/smart-incubator</loc>
+    <lastmod>2022-07-03T05:02:20+03:00</lastmod>
+  </url>
+    <url>
+    <loc>https://www.builtbybixby.com/project/bracket-busters</loc>
+    <lastmod>2022-07-03T05:02:20+03:00</lastmod>
+  </url>
+</urlset>

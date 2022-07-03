@@ -1,10 +1,9 @@
-import React, { useEffect  } from 'react';
+import React, { useEffect, lazy  } from 'react';
 import { connect } from 'react-redux';
 
 import { projectsFetchRequest, projectFetchRequest } from '../../actions/project-actions.js';
 import { logError, renderIf } from './../../lib/util.js';
-import Tile from '../tile';
-import './../../style/main.scss';
+const Tile = lazy(() => import('../tile'));
 
 function LandingContainer({projects, projectsFetch }) {
     useEffect(() => {
