@@ -13,7 +13,7 @@ function Tile({project}) {
     return(
       <Link to={`/project/${project.url}`}>
         <div className='tileWrapper'>
-          <img src={obj[project.image]} alt="project screen shot" />
+          <img className="lazyload" data-src={obj[project.image]} alt="project screen shot" />
           <div className='tileInner'>
             <div className='text'>
               <p className='projectName'>{project.name} </p>
