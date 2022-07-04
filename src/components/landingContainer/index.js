@@ -1,9 +1,9 @@
-import React, { useEffect, lazy  } from 'react';
+import React, { useEffect  } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { projectsFetchRequest, projectFetchRequest } from '../../actions/project-actions.js';
-import { logError, renderIf } from './../../lib/util.js';
-const Tile = lazy(() => import('../tile'));
+import { imgObj, smallImgObj, logError, renderIf } from './../../lib/util.js';
 
 function LandingContainer({projects, projectsFetch }) {
     useEffect(() => {
@@ -26,7 +26,23 @@ function LandingContainer({projects, projectsFetch }) {
             <div className='tileContainer'>
                 {projects.map(project => {
                     return <div className='tileOuter' key={project._id}>
-                    <Tile project={project} />
+                    <Link to={`/project/${project.url}`}>
+                        <div className='tileWrapper'>
+                        <img 
+                        fetchpriority="high"
+                        style={{ "width" : "100%", "height": "auto" }}
+                        src={imgObj[project.image]}
+                        srcSet={`${smallImgObj[project.image]} 464w, ${imgObj[project.image]} 825w, ${smallImgObj[project.image]} 464w`}
+                        sizes={"(maxWidth: 480) 100vw, (maxWidth: 767) 100vw, 33.3333vw"}
+                        alt="project screen shot" />
+                        <div className='tileInner'>
+                            <div className='text'>
+                            <p className='projectName'>{project.name} </p>
+                            <p className='projectDesc'>{project.shortDesc} </p>
+                            </div>
+                        </div>
+                        </div>
+                    </Link>
                     </div>
                 })}
             </div>

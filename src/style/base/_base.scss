@@ -3,6 +3,7 @@
 }
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden !important;
 }
 body {
   width: 100%;
@@ -10,7 +11,7 @@ body {
   -webkit-font-smoothing: antialiased;
   word-wrap: break-word;
   overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   -webkit-tap-highlight-color: transparent;
 }
 textarea {

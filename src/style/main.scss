@@ -1,3 +1,35 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto/Roboto-Bold.ttf") format("ttf");
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto/Roboto-Regular.ttf") format("ttf");
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto/Roboto-Light.ttf") format("ttf");
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Oswald";
+    src: url("../fonts/Oswald/Oswald-Bold.ttf") format("ttf");
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Oswald";
+    src: url("../fonts/Oswald/Oswald-Regular.ttf") format("ttf");
+    font-weight: 400;
+    font-display: swap;
+}
+
 @import './lib/vars';
 @import './base/reset';
 @import './base/base';
