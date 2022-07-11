@@ -2,15 +2,27 @@ import React, { useEffect  } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { projectsFetchRequest, projectFetchRequest } from '../../actions/project-actions.js';
+import { projectsFetchRequest, projectFetchRequest, projectsFetch } from '../../actions/project-actions.js';
 import { imgObj, smallImgObj, logError, renderIf } from './../../lib/util.js';
 
-function LandingContainer({projects, projectsFetch }) {
+function LandingContainer({projects, projectsFetch, projectsFetchRequest }) {
+    let flag = 0;
+
     useEffect(() => {
-        projectsFetch()
-            .then(() => window.scrollTo(0, 0))
-            .catch(err => logError(err));
-    }, [projectsFetch]);
+        if (!flag) {
+          flag++;
+          if (!projects || !projects.length) {
+            const bbbProjects = JSON.parse(localStorage.getItem("builtByBixby-allProjects"));
+            if (bbbProjects && bbbProjects['timestamp'] > new Date().getTime()) {
+                projectsFetchRequest(bbbProjects['content']);
+            } else {
+                projectsFetch()
+                    .then(() => window.scrollTo(0, 0))
+                    .catch(err => logError(err));
+            }
+          }
+        }
+      }, [flag, projects, projectsFetch, projectsFetchRequest]);
 
     return(
       <div className='pageContent homePageContent'>
@@ -54,7 +66,8 @@ function LandingContainer({projects, projectsFetch }) {
 const mapStateToProps = state => ({ projects: state.projects });
 const mapDispatchToProps = dispatch => ({
     projectsFetch: () => dispatch(projectsFetchRequest()),
-    projectFetch: url => dispatch(projectFetchRequest(url)) 
+    projectFetch: url => dispatch(projectFetchRequest(url)),
+    projectsFetchRequest: projectsData => dispatch(projectsFetch(projectsData))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LandingContainer);

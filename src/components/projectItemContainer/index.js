@@ -2,21 +2,33 @@ import React, { useEffect, lazy } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from "react-router-dom";
 
-import { projectFetchRequest } from '../../actions/project-actions.js';
+import { projectFetchRequest, projectFetch } from '../../actions/project-actions.js';
 import { imgObj, logError, renderIf, classToggler } from './../../lib/util.js';
 // import { imgObj, smallImgObj, logError, renderIf } from './../../lib/util.js';
 const Footer2 = lazy(() => import('../footer2'));
 
-function ProjectItemContainer({ currentProject, projectFetch, params}) {
+function ProjectItemContainer({ currentProject, projectFetch, projectFetchRequest, params}) {
+    let flag = 0;
     const myRef = React.createRef();
     const executeScroll = () => myRef.current.scrollIntoView();
     const { projectName } = useParams();
-    useEffect(() => {
-        projectFetch(projectName)
-            .then(() => window.scrollTo(0, 0))
-            .catch(err => logError(err))
-    }, [projectFetch, projectName]);
 
+    useEffect(() => {
+        if (!flag) {
+          flag++;
+          if (!currentProject || currentProject.url !== projectName) {
+            const bbbProject = JSON.parse(localStorage.getItem(`builtByBixby-${projectName}`));
+            if (bbbProject && bbbProject['timestamp'] > new Date().getTime()) {
+                projectFetchRequest(bbbProject['content']);
+            } else {
+                projectFetch(projectName)
+                    .then(() => window.scrollTo(0, 0))
+                    .catch(err => logError(err))
+            }
+          }
+        }
+    }, [flag, currentProject, projectFetch, projectName, projectFetchRequest]);
+    
     const myProject = currentProject && currentProject.projects ? currentProject.projects : null;
     const id = params && params.projectName ? params.projectName : "none";
     return(
@@ -79,6 +91,9 @@ function ProjectItemContainer({ currentProject, projectFetch, params}) {
 }
 
 const mapStateToProps = state => ({ currentProject: state.currentProject });
-const mapDispatchToProps = dispatch => ({ projectFetch: url => dispatch(projectFetchRequest(url)) });
+const mapDispatchToProps = dispatch => ({ 
+    projectFetch: url => dispatch(projectFetchRequest(url)),
+    projectFetchRequest: projectData => dispatch(projectFetch(projectData))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectItemContainer);
