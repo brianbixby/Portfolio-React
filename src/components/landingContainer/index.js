@@ -41,8 +41,6 @@ function LandingContainer({projects, projectsFetch, projectsFetchRequest }) {
                     <Link to={`/project/${project.url}`}>
                         <div className='tileWrapper'>
                         <img 
-                        fetchpriority="high"
-                        fetchPriority="high"
                         style={{ "width" : "100%", "height": "auto" }}
                         src={imgObj[project.image]}
                         srcSet={`${smallImgObj[project.image]} 464w, ${imgObj[project.image]} 825w, ${smallImgObj[project.image]} 464w`}
