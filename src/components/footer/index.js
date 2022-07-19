@@ -19,10 +19,12 @@ class Footer extends React.Component {
       error: null,
       focused: null,
       submitted: false,
+      userSuccess: false,
+      userSuccessMessage: ''
     };
   }
   componentWillUnmount() {
-    this.setState({ name: '', email: '', message: '' });
+    this.setState({ name: '', email: '', message: '', userSuccess: false, userSuccessMessage: '' });
   }
   validateInput = e => {
     let { name, value } = e.target;
@@ -76,13 +78,16 @@ class Footer extends React.Component {
     if(!this.state.error) {
       this.props.messageCreate(this.state)
         .then(() => {
-          this.setState({ name: '', email: '', message: '' });
+          this.setState({ name: '', email: '', message: '', userSuccessMessage: 'Success, Message sent.' });
+          return this.handleUserSuccess();
         })
         .catch(err => {
           this.setState({ 
             error: err,
             submitted: true,
-        });
+            userSuccessMessage: 'An Error occurred while sending your message.'
+          });
+          return this.handleUserSuccess();
       });
     }
     this.setState(state => ({
@@ -93,9 +98,15 @@ class Footer extends React.Component {
     }))
   };
 
+  handleUserSuccess = () => {
+    this.setState({ userSuccess: true });
+    setTimeout(() => this.setState({ userSuccess: false }), 5000);
+  };
+
   render() {
     let { focused, submitted, emailError, messageError, nameError } = this.state;
     return (
+    <div>
       <div className='footerWrapper'>
         <div className='container'>
           <div className='footerTitleWrapper'>
@@ -140,6 +151,16 @@ class Footer extends React.Component {
             </form>
           </div>
         </div>
+        <div
+          className={classToggler({
+            sliderPopup: true,
+            clozed: this.state.userSuccess,
+          })}
+          onClick={() => this.setState({ userSuccess: false })}
+        >
+          <p>{this.state.userSuccessMessage}</p>
+        </div>
+      </div>
       </div>
     );
   }

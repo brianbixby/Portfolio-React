@@ -1,6 +1,5 @@
 import React, { useEffect, lazy } from 'react';
 const Footer = lazy(() => import('../footer'));
-// const Footer2 = lazy(() => import('../footer2'));
 
 function AboutContainer(){
     useEffect(() => {
@@ -50,8 +49,7 @@ function AboutContainer(){
           </div>
         </div>
         <div className='spacer'></div>
-        <Footer />
-        {/* <Footer2 /> */}
+            <Footer />
       </div>
     );
 }
